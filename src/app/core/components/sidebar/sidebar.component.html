@@ -1,0 +1,54 @@
+<div id="sidebar" class="h-100 d-flex flex-column transition"
+  [class.collapsed]="!sideExpanded"
+  (mouseenter)="hoverFn('enter')" (mouseleave)="hoverFn()">
+
+  <div class="d-flex justify-content-between">
+    <div class="logo-holder w-100">
+      <h3 class="d-flex justify-content-center" *ngIf="sideExpanded">Angular Admin Panel</h3>
+       <h5 class="d-flex justify-content-center" *ngIf="!sideExpanded">Angular Admin Panel</h5>
+      <hr class="divider border-color" *ngIf="!sideExpanded">
+    </div>
+    <a mat-icon-button class="pin-btn"
+      (click)="toggleSidebar()"
+      *ngIf="largeScreen && sideExpanded"
+      [class.rotate]="!sidebarService.expanded">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </a>
+  </div>
+
+  <mat-accordion displayMode="flat" class="h-100">
+
+    <mat-expansion-panel
+      *ngFor="let item of sidebarLinks;let i = index"
+      [hideToggle]="!item.expandable || !sideExpanded"
+      [routerLinkActiveOptions]="{exact: true}"
+      routerLinkActive="active"
+      #hasActiveLink="routerLinkActive">
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <a
+            class="w-100 h-100 d-flex align-items-center"
+            [routerLink]="item.url"
+            [class.justify-content-center]="!sideExpanded">
+            <mat-icon>{{item.icon}}</mat-icon>
+            <span class="title">{{item.name}}</span>
+          </a>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+  <ng-container *ngIf="sideExpanded;else notExpanded">
+    <button mat-button
+      class="mt-auto mb-4 mx-auto support-icon bg-primary-alt full-size py-4">
+      <span class="fw-bold">Support</span>
+    </button>
+  </ng-container>
+  <ng-template #notExpanded>
+    <button mat-icon-button
+      class="mt-auto mb-4 mx-auto support-icon bg-primary-alt">
+      <mat-icon>contact_support</mat-icon>
+    </button>
+  </ng-template>
+</div>

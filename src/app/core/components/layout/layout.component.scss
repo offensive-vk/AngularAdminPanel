@@ -1,0 +1,17 @@
+@import '../../../../assets/styles/_variables/sizing.scss';
+@import '../../../../assets/styles/_variables/mixin.scss';
+@import '../../../../assets/styles/_variables/colors.scss';
+::ng-deep {
+    mat-drawer {overflow-x: hidden;}
+
+    .expanded .mat-drawer-content{margin-left: $side_wide!important;@include general_transition(0.3s);}
+    .collapsed .mat-drawer-content{margin-left: $side_collapsed!important;@include general_transition(0.3s);}
+
+    .mat-drawer-content {
+      overflow: hidden auto!important;
+      padding-bottom: 20px;
+      @include scrollbar($default_alt,$primary_alt,5px);
+    }
+
+    .mat-drawer-container {background-color: $default;}
+}

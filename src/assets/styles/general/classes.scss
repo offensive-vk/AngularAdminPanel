@@ -1,0 +1,242 @@
+/***
+*
+* You can add/ modify classes in this stylesheet
+*
+**/
+/*=-=-=-=-=-=
+    general classes
+=-=-=-=-=-=*/
+.border-radius-0 {
+  border-radius: 0 !important;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.hoverable-line {
+  @include general_transition(0.3s);
+
+  &:hover {
+    background-color: transparentize($color: $primary_alt, $amount: 0.89);
+  }
+}
+
+.has_loading {
+  background-image: url('../../images/loader-spinning.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: center;
+}
+
+.compressed-line-height {
+  line-height: 10px;
+}
+
+/*=-=-=-=-=-=
+    text
+=-=-=-=-=-=*/
+:root {
+  h4 {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+
+  }
+}
+
+/*=-=-=-=-=-=
+    transition
+=-=-=-=-=-=*/
+.transition,
+.transition:hover {
+  @include general_transition(0.3s);
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+
+  50% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.transition-slide-up {
+  animation: 0.55s ease-out 0s 1 slideUp;
+}
+
+/*=-=-=-=-=-=
+    link & button
+=-=-=-=-=-=*/
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn-link {
+  color: $primary;
+  text-decoration: none;
+  cursor: pointer;
+  @include general_transition(0.3s);
+
+  &:hover {
+    color: $accent;
+  }
+}
+
+.btn-link-accent {
+  color: $accent;
+  text-decoration: none;
+  cursor: pointer;
+  @include general_transition(0.3s);
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.fab-inline.mat-mdc-mini-fab {
+  height: 37px;
+}
+
+/*=-=-=-=-=-=
+    text & background color
+=-=-=-=-=-=*/
+.bg-primary-dark {
+  background-color: $dark_darker;
+}
+
+.bg-primary-alt {
+  background-color: transparentize($color: $primary_alt, $amount: 0.7) !important;
+}
+
+.bg-gray{
+ background-color: transparentize($color: $default_alt, $amount: 0.3);
+}
+.text-white {
+  color: $default;
+}
+
+.text-muted {
+  opacity: 0.65;
+}
+
+.text-primary {
+  color: $primary;
+}
+
+.text-success {
+  color: $success;
+}
+
+.text-danger {
+  color: $error;
+}
+
+.text-warning {
+  color: $warning;
+}
+
+/*=-=-=-=-=-=
+    border
+=-=-=-=-=-=*/
+.border-color {
+  border-color: transparentize($color: $default_alt, $amount: 0.5) !important;
+}
+
+
+/*=-=-=-=-=-=
+    snackbar
+=-=-=-=-=-=*/
+.mat-mdc-snack-bar-container.top-aligned-snackbar {
+  margin-top: 90px;
+  max-width: 40vw;
+}
+
+
+/*=-=-=-=-=-=
+    table
+=-=-=-=-=-=*/
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  min-height: auto;
+  max-height: 600px;
+  @include scrollbar($default_alt, $primary_alt, 8px);
+  @include scrollbar_horizontal($default_alt, $primary_alt, 8px);
+
+  th.mat-mdc-header-cell:not(:first-child),
+  td.mat-mdc-cell:not(:first-child) {
+    padding-left: 5px;
+  }
+
+  th.mat-mdc-header-cell:not(:last-child),
+  td.mat-mdc-cell:not(:last-child) {
+    padding-right: 5px;
+  }
+
+  th.mat-mdc-header-cell {
+    font-size: 13px;
+  }
+
+  td.mat-mdc-cell.mat-mdc-table-sticky {
+    border-left: 1px solid whitesmoke !important;
+    background-color: $default !important;
+  }
+
+  tr.mat-mdc-row {
+    height: 48px;
+  }
+
+  .table-column-menu {
+    &.mat-mdc-menu-panel {
+      overflow-x: hidden;
+      min-width: 270px;
+      max-height: 315px;
+      @include scrollbar($default_alt, $primary_alt, 5px);
+
+      .mat-mdc-form-field-infix {
+        width: unset;
+      }
+
+      .mat-mdc-menu-content:not(:empty) {
+        padding: 0;
+      }
+
+      .mat-mdc-list-base[dense] .mat-mdc-list-item .mat-list-item-content-reverse,
+      .mat-list-base[dense] .mat-list-option .mat-list-item-content-reverse {
+        padding: 0;
+      }
+
+      .mat-mdc-list-base[dense] .mat-list-option .mat-list-text {
+        word-break: break-word;
+      }
+    }
+  }
+}
+
+.hoverable-table {
+  .mat-mdc-cell {
+    @include general_transition(0.3s);
+  }
+
+  .mat-mdc-row:hover .mat-mdc-cell {
+    background-color: transparentize($color: $primary_alt, $amount: 0.89);
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+}

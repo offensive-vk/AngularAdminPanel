@@ -1,0 +1,133 @@
+/*=-=-=-=-=-=
+  button
+=-=-=-=-=-=*/
+:root {
+  .mat-mdc-icon-button {
+    &.mat-mdc-button-base {
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+    }
+
+    .mat-mdc-button-touch-target {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .mat-button-toggle-group-appearance-standard {
+    border-radius: $radius;
+    border-color: whitesmoke;
+
+    .mat-button-toggle-label-content {
+      line-height: 40px;
+    }
+  }
+
+  .mat-button-toggle-checked {
+    background-color: whitesmoke;
+    color: $primary;
+
+    .mat-button-toggle-button {
+      cursor: default;
+    }
+
+    .mat-button-toggle-focus-overlay {
+      display: none;
+    }
+  }
+}
+/*=-=-=-=-=-=
+drawer
+=-=-=-=-=-=*/
+.mat-drawer-side {
+  width: auto !important;
+}
+
+/*=-=-=-=-=-=
+  card
+=-=-=-=-=-=*/
+:root {
+  .mat-mdc-card {
+    border-radius: $radius;
+    padding: 16px;
+    color: transparentize($color: $dark, $amount: 0.13);
+    border: none;
+
+    .mat-mdc-card-content {
+      font-size: 13px;
+      padding: 0;
+      // overflow-x: hidden;
+      @include scrollbar($default_alt, $primary_alt, 3px);
+    }
+
+    &:not([class*=mat-elevation-z]) {
+      box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    }
+  }
+}
+
+
+
+/*=-=-=-=-=-=
+  pagination
+=-=-=-=-=-=*/
+:root {
+  .mat-mdc-paginator-page-size-select {
+    width: 64px;
+  }
+
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-radius: 0;
+  }
+
+  .mdc-menu-surface {
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  }
+}
+
+
+/*=-=-=-=-=-=
+  dialog
+=-=-=-=-=-=*/
+:root {
+  .mat-mdc-dialog-surface.mdc-dialog__surface {
+    padding: 24px;
+  }
+
+  .mdc-dialog__title {
+    padding: 0;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 28px !important;
+    margin: 0 0 16px;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .mdc-dialog .mdc-dialog__content {
+    padding: 0;
+    overflow: hidden auto;
+    color: inherit;
+  }
+
+  .mat-mdc-dialog-content {
+    @include scrollbar($default_alt, $primary_alt, 8px);
+  }
+}
+
+/*=-=-=-=-=-=
+  expansion panel
+=-=-=-=-=-=*/
+:root {
+  .mat-content.mat-content-hide-toggle {
+    margin-right: 0;
+  }
+}

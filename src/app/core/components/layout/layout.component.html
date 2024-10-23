@@ -1,0 +1,11 @@
+<mat-drawer-container class="h-100" (backdropClick)="!largeScreen ? toggleSidebar() : ''"
+[ngClass]="{'expanded': largeScreen && sideExpanded, 'collapsed': largeScreen && !sideExpanded}">
+    <mat-drawer #drawer [mode]="largeScreen ? 'side' : 'over'" [opened]="largeScreen || sideExpanded" class="border-color">
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+
+    <mat-progress-bar mode="indeterminate" *ngIf="loading" class="http-loader"></mat-progress-bar>
+
+    <app-header [largeScreen]="largeScreen"></app-header>
+    <router-outlet></router-outlet>
+</mat-drawer-container>

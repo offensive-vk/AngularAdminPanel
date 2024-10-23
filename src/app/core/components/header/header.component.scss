@@ -1,0 +1,138 @@
+@import '../../../../assets/styles/_variables/colors.scss';
+@import '../../../../assets/styles/_variables/mixin.scss';
+@import '../../../../assets/styles/_variables/sizing.scss';
+
+.mat-toolbar {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    background-color: $default;
+    height: 85px;
+    font-size: 14px;
+    .nav-link{
+        font-weight: 600;
+        position: relative;
+        cursor: pointer;
+        color: inherit;
+        &.active{
+            color: $primary;
+            &::after {
+                content: ' ';
+                position: absolute;
+                bottom: 0;
+                left: 25%;
+                width: 50%;
+                height: 3px;
+                background-color: $primary;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+        }
+
+        &:not(.main-link) {
+            margin-left: 40px;
+            @media (max-width: 767px) {
+                margin-left: 15px;
+            }
+        }
+    }
+
+    // onlyfor small screen sizes:: value coming from the Core Component.ts
+    .search-box{
+        z-index: 335;
+        @include general_transition(0.3s);
+        &.collapsedInput{
+            width: 0!important;
+            overflow: hidden;
+        }
+        &.expandedInput{
+            left: 0;
+            right: 0;
+            position: absolute;
+            z-index: 335;
+            background-color: $default;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .search-dropdown {
+            position: relative;
+            width: 100%;
+            .search-dropdown-inner{
+                background-color: $default;
+                border-radius: $radius;
+                display: none;
+                position: absolute;
+                top: 5px;
+                width: 100%;
+                z-index: 334;
+            }
+            &.show .search-dropdown-inner {
+                display: block;
+            }
+        }
+    }
+
+    .bell-button {
+      position: relative;
+      &.hasUnread mat-icon {
+        position: relative;
+
+        &::after {
+          position: absolute;
+          z-index: 2;
+          content: ' ';
+          width: 5px;
+          height: 5px;
+          right: 5px;
+          top: 6px;
+          border-radius: 50%;
+          background-color: $error;
+        }
+
+        &::before {
+          position: absolute;
+          z-index: 1;
+          content: ' ';
+          width: 10px;
+          height: 10px;
+          right: 2.5px;
+          top: 3.5px;
+          border-radius: 50%;
+          background-color: $default;
+        }
+      }
+
+    }
+}
+.invisible-overlay {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 333;
+}
+.text-truncate.username {max-width: clamp(1vw,10vw,15vw);}
+
+::ng-deep .mat-mdc-menu-panel.notifications-menu {
+  margin-top: 10px;
+  margin-right: -10px;
+  border-radius: $radius;
+  width: 485px;
+  max-width: 90vw!important;
+  padding: 20px;
+
+  .mat-mdc-menu-content {
+    overflow: auto;
+    padding-right: 20px;
+    margin-right: -13px;
+    max-height: 280px;
+    max-width: 100%;
+    @include scrollbar($default_alt, $default_darker, 3px);
+  }
+
+  .notification-details {
+    max-width: 85%;
+    width: 100%;
+    p.text-truncate {max-width: 76%;}
+  }
+}
